@@ -1,215 +1,203 @@
+# ⚡ Weight Tracker — Personal Android App
+
 <div align="center">
 
-<img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" width="120" alt="Weight Tracker Icon" />
+![Weight Tracker](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Language](https://img.shields.io/badge/Language-Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![WebView](https://img.shields.io/badge/UI-WebView%20%2B%20HTML%2FJS-00FFE0?style=for-the-badge)
+![Min SDK](https://img.shields.io/badge/Min%20SDK-24%20(Android%207)-blue?style=for-the-badge)
 
-# Weight Tracker
-
-**A personal weight tracking app for Android — built with a WebView-wrapped HTML/JS frontend.**
-
-![Android](https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white)
-![Min SDK](https://img.shields.io/badge/Min%20SDK-API%2024-blue?style=flat-square)
-![Language](https://img.shields.io/badge/Language-Kotlin%20%2B%20HTML-orange?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-purple?style=flat-square)
+**A personal weight tracking Android app with a neon dark aesthetic, BMI calculator, goal tracking, monthly/weekly charts, and local Excel export.**
 
 </div>
 
 ---
 
-## Overview
+## 📱 Screenshots
 
-Weight Tracker is a minimalistic yet feature-rich personal health app designed to make daily weight logging effortless. It features a clean dark/light interface with neon-styled text, interactive charts, BMI tracking, weekly averages, goal setting, and Excel export — all packaged as a native Android APK.
+> *Dark neon aesthetic with animated geometric background*
 
----
-
-## Features
-
-### Core Tracking
-- **Daily weight logging** — log weight in kg or lb for any past date
-- **Future date lock** — prevents logging entries for dates that haven't arrived yet
-- **Editable entries** — delete any entry from the log at any time
-
-### Visualisation
-- **Monthly chart** — line graph of daily weights for the selected month, with a start line and optional target line
-- **Weekly averages chart** — bar chart showing week-by-week average weight trends, displayed directly below the monthly chart
-- **Month navigation** — browse previous months using arrow buttons or the history tab selector
-
-### Goal & Progress
-- **Target weight** — set a goal weight that appears as a dashed line on all charts
-- **Progress bar** — visual fill bar showing how far you've come from start to goal
-- **Delta cards** — always-visible "vs previous" and "vs start" numbers on the home screen
-
-### BMI Tracker
-- **Saved height** — enter your height once and it's remembered permanently
-- **Live BMI calculation** — updates automatically as you log new weights
-- **Category scale** — visual sliding scale showing Underweight / Normal / Overweight / Obese with a marker at your current BMI
-- **BMI history table** — last 10 entries with BMI and category
-
-### Weekly Averages
-- Dedicated tab with a full bar chart and sortable table
-- Shows entries per week and change vs previous week
-
-### Export
-- **Excel export (.xlsx)** — one-tap download with 5 sheets:
-  - Daily Log
-  - Weekly Averages
-  - Monthly Summary
-  - BMI History *(if height is set)*
-  - Target Summary *(if goal is set)*
-
-### Onboarding
-- **First-launch setup screen** — 3-step flow collecting name, height, and target weight
-- Skippable steps — only name is required
-- Re-accessible anytime via the **profile** button in the header
-
-### UI / UX
-- **Dark & Light mode** toggle — persistent across sessions
-- **Neon-styled text** — glowing accents on key numbers and labels
-- **Editable name** — click your name in the header to rename
-- **Mobile-first layout** — responsive design optimised for phone screens
+| Onboarding | Dashboard | Charts | Export |
+|:---:|:---:|:---:|:---:|
+| First launch profile setup | BMI + Goal + Stats | Monthly & Weekly | Downloads to device |
 
 ---
 
-## Screenshots
+## ✨ Features
 
-> Add your own screenshots here after building the APK.
+### 🏁 First Launch Onboarding
+- One-time profile setup — name, height, and goal weight
+- Your name appears as a giant ghost text behind the setup card
+- Data persists forever after setup
 
-| Onboarding | Home | Chart |
-|:---:|:---:|:---:|
-| *(screenshot)* | *(screenshot)* | *(screenshot)* |
+### ⚖️ Weight Logging
+- Log weight by date — today or any past date
+- Future dates are locked automatically
+- Edit existing entries by re-logging the same date
+- Delete any entry with one tap
 
-| BMI | Weekly | Export |
-|:---:|:---:|:---:|
-| *(screenshot)* | *(screenshot)* | *(screenshot)* |
+### 📊 BMI Tracker
+- Auto-calculated from your logged weight + height
+- Colour-coded categories: Underweight / Normal / Overweight / Obese
+- BMI shown on every entry in the log
+
+### 🎯 Goal Weight
+- Set a target weight
+- Neon progress bar showing how far you've come
+- Shows percentage complete and kg remaining
+- Red dashed goal line overlaid on the monthly chart
+
+### 📈 Charts Tab
+- **Monthly Progress** — line chart with goal line overlay
+- **Weekly Averages** — bar chart grouped by week
+- Navigate between months with arrow buttons
+- LIVE button to jump back to current month
+
+### 📋 Log Tab
+- All entries sorted by most recent
+- Month pills to filter by any month
+- Daily change indicator (↑ red / ↓ cyan)
+- BMI shown per entry
+
+### ⬇️ Export Tab
+- Export **all data** or **current month only**
+- Saves as `.csv` directly to phone's **Downloads** folder
+- Opens in Microsoft Excel or Google Sheets
+- Includes: date, weight, BMI, category, daily change, change from start, weekly averages, and a full summary section
+
+### 🎨 Design
+- Animated neon geometric background (hexagons, triangles, rings, particles)
+- Dual-layer neon grid with cyan scan line effect
+- Neon colour palette: cyan `#00ffe0`, violet `#7b5cfa`, hot pink `#ff4d6d`
+- Fully dark — `#050508` background
 
 ---
 
-## Tech Stack
+## 🏗️ Tech Stack
 
 | Layer | Technology |
-|---|---|
-| Android shell | Kotlin + `AppCompatActivity` |
-| UI rendering | Android `WebView` |
-| Frontend | Vanilla HTML / CSS / JavaScript |
-| Charts | [Chart.js 4.4.1](https://www.chartjs.org/) |
-| Excel export | [SheetJS (xlsx) 0.18.5](https://sheetjs.com/) |
-| Data persistence | `localStorage` (via WebView DOM storage) |
-| Build system | Gradle 8.4 |
-| Min SDK | API 24 (Android 7.0) |
-| Target SDK | API 34 (Android 14) |
+|-------|-----------|
+| Android wrapper | Java (Native Android Activity) |
+| UI | HTML5 + CSS3 + Vanilla JavaScript |
+| Charts | Chart.js 4.4.1 |
+| Data storage | Android WebView `localStorage` |
+| File export | Android `MediaStore` API (Android 10+) |
+| Fonts | Google Fonts — Syne + Space Mono |
 
 ---
 
-## Project Structure
-
-```
-WeightTracker/
-├── app/
-│   ├── src/main/
-│   │   ├── assets/
-│   │   │   └── index.html          ← Entire frontend (HTML + CSS + JS)
-│   │   ├── java/com/saumyajyoti/weighttracker/
-│   │   │   └── MainActivity.kt     ← WebView setup + back navigation
-│   │   ├── res/
-│   │   │   ├── layout/
-│   │   │   │   └── activity_main.xml
-│   │   │   ├── mipmap-*/           ← App icons (all densities)
-│   │   │   └── values/
-│   │   │       ├── themes.xml      ← Light theme
-│   │   │       └── strings.xml
-│   │   │   └── values-night/
-│   │   │       └── themes.xml      ← Dark theme
-│   │   └── AndroidManifest.xml
-│   └── build.gradle
-├── gradle/wrapper/
-│   └── gradle-wrapper.properties
-├── build.gradle
-├── settings.gradle
-└── gradle.properties
-```
-
----
-
-## Building the APK
+## 🚀 Build Instructions
 
 ### Prerequisites
-- [Android Studio](https://developer.android.com/studio) (Hedgehog or newer recommended)
-- JDK 8 or higher
-- Android SDK with API 24–34
+- [Android Studio](https://developer.android.com/studio) (any recent version)
+- Java installed (comes with Android Studio)
+- Internet connection (first build only — to download Gradle + dependencies)
 
 ### Steps
 
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/yourusername/WeightTracker.git
-   cd WeightTracker
-   ```
+1. **Clone or download** this repository
 
 2. **Open in Android Studio**
-   ```
-   File → Open → select the WeightTracker folder → OK
-   ```
-   Wait for Gradle sync to complete (requires internet on first run).
+   - File → Open → select the `WeightTrackerAPK` folder
 
-3. **Build the debug APK**
-   ```
-   Build → Build Bundle(s) / APK(s) → Build APK(s)
-   ```
-   Output: `app/build/outputs/apk/debug/app-debug.apk`
+3. **Wait for Gradle sync** (~1-2 min on first run)
 
-4. **Run on a connected device**
-   - Enable **Developer Options** and **USB Debugging** on your Android phone
-   - Connect via USB
-   - Press the **▶ Run** button in Android Studio
+4. **Build the APK**
+   ```
+   Build → Build Bundle(s)/APK(s) → Build APK(s)
+   ```
 
-### Install on any Android phone (sideload)
-1. Copy `app-debug.apk` to your phone
-2. On the phone: **Settings → Security → Install unknown apps** → enable for your file manager
-3. Tap the APK file to install
+5. **Find your APK at:**
+   ```
+   app/build/outputs/apk/debug/app-debug.apk
+   ```
+
+### Install on Android Phone
+1. Transfer the APK to your phone (USB, WhatsApp, Google Drive, etc.)
+2. On your phone: **Settings → Security → Install unknown apps** → enable
+3. Tap the APK file → Install
 
 ---
 
-## Data Storage
+## 📁 Project Structure
 
-All user data is stored locally on the device using the browser's `localStorage` API via Android WebView's DOM storage. No data is sent to any server. No internet connection is required after the first build.
-
-Data stored:
-| Key | Contents |
-|---|---|
-| `wt_v7_entries` | All weight log entries (JSON array) |
-| `wt_v7_name` | User's display name |
-| `wt_v7_target` | Target weight (kg) |
-| `wt_v7_height` | Height (cm) for BMI calculation |
-| `wt_ob_done` | Onboarding completion flag |
-
----
-
-## Customisation
-
-The entire UI lives in a single file: `app/src/main/assets/index.html`. You can edit it directly to:
-
-- Change colour scheme (CSS variables at the top of the `<style>` block)
-- Add new tabs or features
-- Modify the chart appearance (Chart.js config in the JS section)
-- Adjust the onboarding flow
-
-After editing, rebuild the APK in Android Studio.
+```
+WeightTrackerAPK/
+├── app/
+│   └── src/main/
+│       ├── assets/
+│       │   └── index.html          # Full app UI (HTML + CSS + JS)
+│       ├── java/com/saumyajyoti/weighttracker/
+│       │   └── MainActivity.java   # Android WebView wrapper + file export bridge
+│       ├── res/
+│       │   ├── mipmap-*/           # App icons (all densities)
+│       │   └── values/styles.xml   # Dark theme
+│       └── AndroidManifest.xml
+├── app/build.gradle                # Dependencies + Kotlin conflict fix
+├── gradle.properties               # AndroidX + Kotlin stdlib fix
+└── build.gradle
+```
 
 ---
 
-## Contributing
+## 📊 Export Format
 
-Pull requests are welcome! If you'd like to suggest a feature or report a bug, please open an issue first.
+The exported `.csv` file includes:
+
+```
+Weight Tracker Export
+Name: [Your Name]
+Height: [height] cm
+Goal Weight: [goal] kg
+Exported: [date]
+
+Date, Weight (kg), BMI, Category, Change from Previous (kg), Change from Start (kg), Weekly Avg (kg)
+2026-03-01, 104.0, 32.1, Obese, , 0.0, 104.0
+2026-03-02, 103.5, 31.9, Obese, -0.5, -0.5, 103.8
+...
+
+SUMMARY
+Starting Weight, 104.0 kg
+Latest Weight, 103.5 kg
+Lowest Weight, 103.5 kg
+...
+```
 
 ---
 
-## License
+## 🔧 Known Fixes Applied
 
-This project is licensed under the [MIT License](LICENSE).
+| Issue | Fix |
+|-------|-----|
+| Kotlin stdlib duplicate class conflict | `resolutionStrategy` in `app/build.gradle` + `kotlin.stdlib.default.dependency=false` in `gradle.properties` |
+| Charts not loading | Chart.js loaded via CDN `<script src>` tag |
+| Data not updating after entry | `loadData()` called at start of every `render()` |
+| Future dates accessible | HTML `input[max]` + JS double-check on submit |
+
+---
+
+## 📦 Data Storage
+
+All weight entries are stored in the WebView's `localStorage` on-device. Data is:
+- **Private** to the app
+- **Persists** between app restarts
+- **Lost only** if the app is uninstalled
+- **Exportable** anytime via the Export tab
+
+---
+
+## 👤 Author
+
+**Saumyajyoti** — personal project for tracking weight progress
+
+---
+
+## 📄 License
+
+This is a personal project. Feel free to fork and customize for your own use.
 
 ---
 
 <div align="center">
-
-Built with ❤️ by **Saumyajyoti**
-
+Built with 💚 and a lot of neon
 </div>
